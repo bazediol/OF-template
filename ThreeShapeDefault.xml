@@ -1,0 +1,510 @@
+<?xml version="1.0"?>
+<AoraOrderFormTemplate Name="3Shape Official Demo Template" LabName="Laboratorium Dentmerk" Id="0e23f430-a4a8-4b6f-872b-a19b009cacc0" Version="15" DefaultLanguage="en">
+  <OrderFormVersion>2</OrderFormVersion>
+  <FormatVersion>1</FormatVersion>
+  <LogoImage>3Shape.png</LogoImage>
+  <LabAddress Uri="net.tcp://www.3shapecommunicate.com:9200/3ShapecommunicateService/_3OXService.svc" Username="0e23f430-a4a8-4b6f-872b-a19b009cacc0" />
+  <ImplantSystems />
+  <OrderInfoTemplate>
+    <Group>
+      <Caption LanguageID="en" Text="General" />
+      <Caption LanguageID="da" Text="Generel" />
+      <Caption LanguageID="es" Text="General" />
+      <Caption LanguageID="fr" Text="Générale" />
+    </Group>
+    <Group>
+      <Caption LanguageID="en" Text="Delivery" />
+      <Caption LanguageID="da" Text="Levering" />
+      <Caption LanguageID="es" Text="Envío" />
+      <Caption LanguageID="fr" Text="L'envoi" />
+    </Group>
+    <Group>
+      <Caption LanguageID="en" Text="Images" />
+      <Caption LanguageID="da" Text="Billeder" />
+      <Caption LanguageID="es" Text="Imagenes" />
+      <Caption LanguageID="fr" Text="Images" />
+    </Group>
+  </OrderInfoTemplate>
+  <ModelElementTemplate>
+    <DropDown Condition="NumberOfUnits&gt;0" ElementID="RestorationType">
+      <Caption LanguageID="en" Text="Type" />
+      <Caption LanguageID="da" Text="Type" />
+      <Caption LanguageID="es" Text="Tipo" />
+      <Caption LanguageID="fr" Text="Type" />
+      <Item ID="">
+        <Caption LanguageID="en" Text="-- No Work --" />
+        <Caption LanguageID="da" Text="-- Intet Arbejde --" />
+        <Caption LanguageID="es" Text="-- Sin trabajo --" />
+        <Caption LanguageID="fr" Text="-- Pas de travail --" />
+      </Item>
+      <Item ID="RPD" TypeClass="Clasp">
+        <Caption LanguageID="en" Text="RPD" />
+        <Image FileName="RPD_a_32x32.png" />
+      </Item>
+    </DropDown>
+    <DropDown Condition="RestorationType!= AND TypeClass!=Clasp AND TypeClass!=Brackets" ElementID="Material" IsRequired="True">
+      <Caption LanguageID="en" Text="Material" />
+      <Item ID="">
+        <Caption LanguageID="en" Text="-- Not chosen --" />
+        <Caption LanguageID="fr" Text="-- Aucun choix --" />
+        <Caption LanguageID="da" Text="-- Ikke valgt --" />
+        <Caption LanguageID="es" Text="-- Sin selección --" />
+      </Item>
+      <Item Condition="RestorationType=RPD" ID="Flexible">
+        <Caption LanguageID="en" Text="Flexible" />
+      </Item>
+      <Item Condition="RestorationType=RPD" ID="Metal">
+        <Caption LanguageID="en" Text="Metal" />
+      </Item>
+    </DropDown>
+    <DropDown Condition="NumberOfUnits&gt;=2" ElementID="LinkID" TypeClass="LinkID">
+      <Caption LanguageID="en" Text="Bridge type" />
+      <Caption LanguageID="fr" Text="Type de bridge" />
+      <Caption LanguageID="da" Text="Bro type" />
+      <Caption LanguageID="es" Text="Tipo de puente" />
+      <Item ID="">
+        <Caption LanguageID="en" Text="-- None --" />
+        <Caption LanguageID="fr" Text="-- Aucun --" />
+        <Caption LanguageID="da" Text="-- Ingen --" />
+        <Caption LanguageID="es" Text="-- Ninguno --" />
+      </Item>
+      <Item ID="Configuration_01_LinkTypeConnector5" TypeClass="Connector">
+        <Caption LanguageID="en" Text="Connector" />
+        <Caption LanguageID="fr" Text="Connecteur" />
+        <Caption LanguageID="da" Text="Konnektorer" />
+        <Caption LanguageID="es" Text="Conector" />
+        <Image FileName="24x24BridgeConnector.png" />
+      </Item>
+      <Item ID="Configuration_01_Bar2" TypeClass="Bar">
+        <Caption LanguageID="en" Text="Bar" />
+        <Caption LanguageID="fr" Text="Barre" />
+        <Caption LanguageID="da" Text="Bar" />
+        <Caption LanguageID="es" Text="Barra" />
+        <Image FileName="24x24BridgeBar.png" />
+      </Item>
+    </DropDown>
+    <DropDown Condition="TypeClass=CrownPontic" ElementID="CrownPontic">
+      <Caption LanguageID="en" Text="Pontic Design" />
+      <Caption LanguageID="fr" Text="Conception de pontique" />
+      <Caption LanguageID="da" Text="Pontic Design" />
+      <Caption LanguageID="es" Text="Diseño de póntico" />
+      <Item ID="PonticHygenic" TypeClass="Pontic">
+        <Caption LanguageID="en" Text="Hygeniec Pontic" />
+        <Caption LanguageID="fr" Text="Pontique hygiène" />
+        <Caption LanguageID="da" Text="Hygiejnisk Pontic" />
+        <Caption LanguageID="es" Text="Póntico higienico" />
+      </Item>
+      <Item ID="PonticHarmoni" TypeClass="Pontic">
+        <Caption LanguageID="en" Text="Harmony Pontic" />
+        <Caption LanguageID="fr" Text="Pontique harmonie" />
+        <Caption LanguageID="da" Text="Harmoni Pontic" />
+        <Caption LanguageID="es" Text="Póntico harmónico" />
+      </Item>
+      <Item ID="PonticCone" TypeClass="Pontic">
+        <Caption LanguageID="en" Text="Cone Pontic" />
+        <Caption LanguageID="fr" Text="Pontique cône" />
+        <Caption LanguageID="da" Text="Kegle Pontic" />
+        <Caption LanguageID="es" Text="Pontico cónico" />
+      </Item>
+      <Item ID="PonticRidgelap" TypeClass="Pontic">
+        <Caption LanguageID="en" Text="Ridgelap Pontic" />
+        <Caption LanguageID="fr" Text="Pontique Ridgelap" />
+        <Caption LanguageID="da" Text="Ridgelap Pontic" />
+        <Caption LanguageID="es" Text="Póntico Rigelap" />
+      </Item>
+    </DropDown>
+    <Group ElementID="PostAndCoreGroup">
+      <Caption LanguageID="en" Text="Post &amp; Core" />
+      <DropDown Condition="SupportsImplant=True" ElementID="PostAndCoreType">
+        <Caption LanguageID="en" Text="P&amp;C Type" />
+        <Item ID="">
+          <Caption LanguageID="en" Text="-- Not chosen --" />
+        </Item>
+        <Item ID="Telescope" SupportsColor="True" TypeClass="TelescopeCrown">
+          <Caption LanguageID="en" Text="Telescope" />
+          <Image FileName="36x36_15_Robotic-telescope.png" />
+        </Item>
+        <Item ID="Post_and_Core_Retained_Crown_Restoration_Type" TypeClass="PostAndCoreRetainedCrown">
+          <Caption LanguageID="en" Text="Post and Core Retained Crown" />
+          <Image FileName="32x32_PostCoreRetainedCrown.png" />
+        </Item>
+        <Item ID="Post_and_Core_Restoration_Type" TypeClass="PostAndCoreStandard">
+          <Caption LanguageID="en" Text="Post and Core" />
+          <Image FileName="32x32_PostCore.png" />
+        </Item>
+      </DropDown>
+      <DropDown Condition="TypeClass=PostAndCoreStandard OR TypeClass=PostAndCoreRetainedCrown" ElementID="PCSystem" IsRequired="True">
+        <Caption LanguageID="en" Text="System" />
+        <Caption LanguageID="fr" Text="Système" />
+        <Caption LanguageID="da" Text="System" />
+        <Item ID="">
+          <Caption LanguageID="en" Text="-- None --" />
+          <Caption LanguageID="fr" Text="-- Aucun --" />
+          <Caption LanguageID="da" Text="-- Ingen --" />
+          <Caption LanguageID="es" Text="-- Ninguno --" />
+        </Item>
+        <Item ID="PCApol">
+          <Caption LanguageID="en" Text="Apol" />
+        </Item>
+        <Item ID="PCPivomatic">
+          <Caption LanguageID="en" Text="Pivomatic" />
+        </Item>
+        <Item ID="PCAnatomical">
+          <Caption LanguageID="en" Text="Anatomical" />
+          <Caption LanguageID="fr" Text="Anatomique" />
+          <Caption LanguageID="da" Text="Anatomisk" />
+          <Caption LanguageID="es" Text="Anatómico" />
+        </Item>
+        <Item ID="PCCylindrical">
+          <Caption LanguageID="en" Text="Cylindrical" />
+        </Item>
+      </DropDown>
+      <DropDown Condition="PCSystem=PCApol" ElementID="PCScanPostApol" IsRequired="True">
+        <Caption LanguageID="en" Text="Scan post" />
+        <Caption LanguageID="es" Text="Pilar escaneado" />
+        <Item ID="">
+          <Caption LanguageID="en" Text="-- None --" />
+          <Caption LanguageID="fr" Text="-- Aucun --" />
+          <Caption LanguageID="da" Text="-- Ingen --" />
+          <Caption LanguageID="es" Text="-- Ninguno --" />
+        </Item>
+        <Item ID="AS1_4">
+          <Caption LanguageID="en" Text="AS 1.4 short" />
+          <Caption LanguageID="fr" Text="AS 1.4 court" />
+          <Caption LanguageID="da" Text="AS 1.4 kort" />
+          <Caption LanguageID="es" Text="AS 1.4 corto" />
+        </Item>
+        <Item ID="AL1_4">
+          <Caption LanguageID="en" Text="AL 1.4 long" />
+          <Caption LanguageID="da" Text="AL 1.4 lang" />
+          <Caption LanguageID="es" Text="AL 1.4 largo" />
+        </Item>
+        <Item ID="AS1_6">
+          <Caption LanguageID="en" Text="AS 1.6 short" />
+          <Caption LanguageID="fr" Text="AS 1.6 court" />
+          <Caption LanguageID="da" Text="AS 1.6 kort" />
+          <Caption LanguageID="es" Text="AS 1.6 corto" />
+        </Item>
+        <Item ID="AL1_6">
+          <Caption LanguageID="en" Text="AL 1.6 long" />
+          <Caption LanguageID="da" Text="AL 1.6 lang" />
+          <Caption LanguageID="es" Text="AL 1.6 largo" />
+        </Item>
+        <Item ID="AS1_7">
+          <Caption LanguageID="en" Text="AS 1.7 short" />
+          <Caption LanguageID="fr" Text="AS 1.7 court" />
+          <Caption LanguageID="da" Text="AS 1.7 kort" />
+          <Caption LanguageID="es" Text="AS 1.7 corto" />
+        </Item>
+        <Item ID="AL1_7">
+          <Caption LanguageID="en" Text="AL 1.7 long" />
+          <Caption LanguageID="da" Text="AL 1.7 lang" />
+          <Caption LanguageID="es" Text="AL 1.7 largo" />
+        </Item>
+      </DropDown>
+      <DropDown Condition="PCSystem=PCPivomatic" ElementID="PCScanPostPivomatic" IsRequired="True">
+        <Caption LanguageID="en" Text="Scan post" />
+        <Caption LanguageID="es" Text="Pilares escaneado" />
+        <Item ID="">
+          <Caption LanguageID="en" Text="-- None --" />
+          <Caption LanguageID="fr" Text="-- Aucun --" />
+          <Caption LanguageID="da" Text="-- Ingen --" />
+          <Caption LanguageID="es" Text="-- Ninguno --" />
+        </Item>
+        <Item ID="PS1_2">
+          <Caption LanguageID="en" Text="PS 1.2 short" />
+          <Caption LanguageID="fr" Text="PS 1.2 court" />
+          <Caption LanguageID="da" Text="PS 1.2 kort" />
+          <Caption LanguageID="es" Text="PS 1.2 corto" />
+        </Item>
+        <Item ID="PL1_2">
+          <Caption LanguageID="en" Text="PL 1.2 long" />
+          <Caption LanguageID="da" Text="PL 1.2 lang" />
+          <Caption LanguageID="es" Text="PL 1.2 largo" />
+        </Item>
+        <Item ID="PS1_3">
+          <Caption LanguageID="en" Text="PS 1.3 short" />
+          <Caption LanguageID="fr" Text="PS 1.3 court" />
+          <Caption LanguageID="da" Text="PS 1.3 kort" />
+          <Caption LanguageID="es" Text="PS 1.3 corto" />
+        </Item>
+        <Item ID="PL1_3">
+          <Caption LanguageID="en" Text="PL 1.3 long" />
+          <Caption LanguageID="da" Text="PL 1.3 lang" />
+          <Caption LanguageID="es" Text="PL 1.3 largo" />
+        </Item>
+        <Item ID="PS1_4">
+          <Caption LanguageID="en" Text="PS 1.4 short" />
+          <Caption LanguageID="fr" Text="PS 1.4 court" />
+          <Caption LanguageID="da" Text="PS 1.4 kort" />
+          <Caption LanguageID="es" Text="PS 1.4 corto" />
+        </Item>
+        <Item ID="PL1_4">
+          <Caption LanguageID="en" Text="PL 1.4 long" />
+          <Caption LanguageID="da" Text="PL 1.4 lang" />
+          <Caption LanguageID="es" Text="PL 1.4 largo" />
+        </Item>
+        <Item ID="PS1_5">
+          <Caption LanguageID="en" Text="PS 1.5 short" />
+          <Caption LanguageID="fr" Text="PS 1.5 court" />
+          <Caption LanguageID="da" Text="PS 1.5 kort" />
+          <Caption LanguageID="es" Text="PS 1.5 corto" />
+        </Item>
+        <Item ID="PL1_5">
+          <Caption LanguageID="en" Text="PL 1.5 long" />
+          <Caption LanguageID="da" Text="PL 1.5 lang" />
+          <Caption LanguageID="es" Text="PL 1.5 largo" />
+        </Item>
+        <Item ID="PS1_6">
+          <Caption LanguageID="en" Text="PS 1.6 short" />
+          <Caption LanguageID="fr" Text="PS 1.6 court" />
+          <Caption LanguageID="da" Text="PS 1.6 kort" />
+          <Caption LanguageID="es" Text="PS 1.6 corto" />
+        </Item>
+        <Item ID="PL1_6">
+          <Caption LanguageID="en" Text="PL 1.6 long" />
+          <Caption LanguageID="da" Text="PL 1.6 lang" />
+          <Caption LanguageID="es" Text="PL 1.6 largo" />
+        </Item>
+        <Item ID="PS1_7">
+          <Caption LanguageID="en" Text="PS 1.7 short" />
+          <Caption LanguageID="fr" Text="PS 1.7 court" />
+          <Caption LanguageID="da" Text="PS 1.7 kort" />
+          <Caption LanguageID="es" Text="PS 1.7 corto" />
+        </Item>
+        <Item ID="PL1_7">
+          <Caption LanguageID="en" Text="PL 1.7 long" />
+          <Caption LanguageID="da" Text="PL 1.7 lang" />
+          <Caption LanguageID="es" Text="PL 1.7 largo" />
+        </Item>
+      </DropDown>
+      <DropDown Condition="TypeClass=PostAndCoreStandard AND PCSystem=PCCylindrical OR TypeClass=PostAndCoreRetainedCrown AND PCSystem=PCCylindrical" ElementID="PCScanPostCylindrical" IsRequired="True">
+        <Caption LanguageID="en" Text="Scan post" />
+        <Caption LanguageID="fr" Text="Scan post" />
+        <Caption LanguageID="da" Text="Scan post" />
+        <Caption LanguageID="es" Text="Pilares escaneado" />
+        <Caption LanguageID="de" Text="Scanpfosten" />
+        <Caption LanguageID="ru" Text="Скан-маркер" />
+        <Caption LanguageID="uk" Text="Скан-маркер" />
+        <Caption LanguageID="pl" Text="Wkład do skanowania" />
+        <Item ID="">
+          <Caption LanguageID="en" Text="-- None --" />
+          <Caption LanguageID="fr" Text="-- Aucun --" />
+          <Caption LanguageID="da" Text="-- Ingen --" />
+          <Caption LanguageID="es" Text="-- Ninguno --" />
+          <Caption LanguageID="it" Text="-- Nessuno --" />
+          <Caption LanguageID="de" Text="-- Keine --" />
+          <Caption LanguageID="ru" Text="-- Нет --" />
+          <Caption LanguageID="zh-CN" Text="-- 无 --" />
+          <Caption LanguageID="ko" Text="-- 없음 --" />
+          <Caption LanguageID="ja" Text="-- なし --" />
+          <Caption LanguageID="uk" Text="-- Немає --" />
+          <Caption LanguageID="pl" Text="-- Żaden --" />
+        </Item>
+        <Item ID="CS0_9">
+          <Caption LanguageID="en" Text="CS 0.9 short" />
+          <Caption LanguageID="fr" Text="CS 0.9 court" />
+          <Caption LanguageID="da" Text="CS 0.9 kort" />
+          <Caption LanguageID="es" Text="CS 0.9 corto" />
+          <Caption LanguageID="de" Text="CS 0.9 kurz" />
+          <Caption LanguageID="ru" Text="CS 0.9 короткий" />
+          <Caption LanguageID="uk" Text="CS 0.9 короткий" />
+          <Caption LanguageID="pl" Text="CS 0.9 krótki" />
+        </Item>
+        <Item ID="CL0_9">
+          <Caption LanguageID="en" Text="CL 0.9 long" />
+          <Caption LanguageID="fr" Text="CL 0.9 long" />
+          <Caption LanguageID="da" Text="CL 0.9 lang" />
+          <Caption LanguageID="es" Text="CL 0.9 largo" />
+          <Caption LanguageID="de" Text="CL 0.9 lang" />
+          <Caption LanguageID="ru" Text="CL 0.9 длинный" />
+          <Caption LanguageID="uk" Text="CL 0.9 довгий" />
+          <Caption LanguageID="pl" Text="CL 0.9 długi" />
+        </Item>
+        <Item ID="CS1_0">
+          <Caption LanguageID="en" Text="CS 1.0 short" />
+          <Caption LanguageID="fr" Text="CS 1.0 court" />
+          <Caption LanguageID="da" Text="CS 1.0 kort" />
+          <Caption LanguageID="es" Text="CS 1.0 corto" />
+          <Caption LanguageID="de" Text="CS 1.0 kurz" />
+          <Caption LanguageID="ru" Text="CS 1.0 короткий" />
+          <Caption LanguageID="uk" Text="CS 1.0 короткий" />
+          <Caption LanguageID="pl" Text="CS 1.0 krótki" />
+        </Item>
+        <Item ID="CL1_0">
+          <Caption LanguageID="en" Text="CL 1.0 long" />
+          <Caption LanguageID="fr" Text="CL 1.0 long" />
+          <Caption LanguageID="da" Text="CL 1.0 lang" />
+          <Caption LanguageID="es" Text="CL 1.0 largo" />
+          <Caption LanguageID="de" Text="CL 1.0 lang" />
+          <Caption LanguageID="ru" Text="CL 1.0 длинный" />
+          <Caption LanguageID="uk" Text="CL 1.0 довгий" />
+          <Caption LanguageID="pl" Text="CL 1.0 długi" />
+        </Item>
+        <Item ID="CS1_14">
+          <Caption LanguageID="en" Text="CS 1.14 short" />
+          <Caption LanguageID="fr" Text="CS 1.14 court" />
+          <Caption LanguageID="da" Text="CS 1.14 kort" />
+          <Caption LanguageID="es" Text="CS 1.14 corto" />
+          <Caption LanguageID="de" Text="CS 1.14 kurz" />
+          <Caption LanguageID="ru" Text="CS 1.14 короткий" />
+          <Caption LanguageID="uk" Text="CS 1.14 короткий" />
+          <Caption LanguageID="pl" Text="CS 1.14 krótki" />
+        </Item>
+        <Item ID="CL1_14">
+          <Caption LanguageID="en" Text="CL 1.14 long" />
+          <Caption LanguageID="fr" Text="CL 1.14 long" />
+          <Caption LanguageID="da" Text="CL 1.14 lang" />
+          <Caption LanguageID="es" Text="CL 1.14 largo" />
+          <Caption LanguageID="de" Text="CL 1.14 lang" />
+          <Caption LanguageID="ru" Text="CL 1.14 длинный" />
+          <Caption LanguageID="uk" Text="CL 1.14 довгий" />
+          <Caption LanguageID="pl" Text="CL 1.14 długi" />
+        </Item>
+        <Item ID="CS1_25">
+          <Caption LanguageID="en" Text="CS 1.25 short" />
+          <Caption LanguageID="fr" Text="CS 1.25 court" />
+          <Caption LanguageID="da" Text="CS 1.25 kort" />
+          <Caption LanguageID="es" Text="CS 1.25 corto" />
+          <Caption LanguageID="de" Text="CS 1.25 kurz" />
+          <Caption LanguageID="ru" Text="CS 1.25 короткий" />
+          <Caption LanguageID="uk" Text="CS 1.25 короткий" />
+          <Caption LanguageID="pl" Text="CS 1.25 krótki" />
+        </Item>
+        <Item ID="CL1_25">
+          <Caption LanguageID="en" Text="CL 1.25 long" />
+          <Caption LanguageID="fr" Text="CL 1.25 long" />
+          <Caption LanguageID="da" Text="CL 1.25 lang" />
+          <Caption LanguageID="es" Text="CL 1.25 largo" />
+          <Caption LanguageID="de" Text="CL 1.25 lang" />
+          <Caption LanguageID="ru" Text="CL 1.25 длинный" />
+          <Caption LanguageID="uk" Text="CL 1.25 довгий" />
+          <Caption LanguageID="pl" Text="CL 1.25 długi" />
+        </Item>
+        <Item ID="CS1_4">
+          <Caption LanguageID="en" Text="CS 1.4 short" />
+          <Caption LanguageID="fr" Text="CS 1.4 court" />
+          <Caption LanguageID="da" Text="CS 1.4 kort" />
+          <Caption LanguageID="es" Text="CS 1.4 corto" />
+          <Caption LanguageID="de" Text="CS 1.4 kurz" />
+          <Caption LanguageID="ru" Text="CS 1.4 короткий" />
+          <Caption LanguageID="uk" Text="CS 1.4 короткий" />
+          <Caption LanguageID="pl" Text="CS 1.4 krótki" />
+        </Item>
+        <Item ID="CL1_4">
+          <Caption LanguageID="en" Text="CL 1.4 long" />
+          <Caption LanguageID="fr" Text="CL 1.4 long" />
+          <Caption LanguageID="da" Text="CL 1.4 lang" />
+          <Caption LanguageID="es" Text="CL 1.4 largo" />
+          <Caption LanguageID="de" Text="CL 1.4 lang" />
+          <Caption LanguageID="ru" Text="CL 1.4 длинный" />
+          <Caption LanguageID="uk" Text="CL 1.4 довгий" />
+          <Caption LanguageID="pl" Text="CL 1.4 długi" />
+        </Item>
+        <Item ID="CS1_5">
+          <Caption LanguageID="en" Text="CS 1.5 short" />
+          <Caption LanguageID="fr" Text="CS 1.5 court" />
+          <Caption LanguageID="da" Text="CS 1.5 kort" />
+          <Caption LanguageID="es" Text="CS 1.5 corto" />
+          <Caption LanguageID="de" Text="CS 1.5 kurz" />
+          <Caption LanguageID="ru" Text="CS 1.5 короткий" />
+          <Caption LanguageID="uk" Text="CS 1.5 короткий" />
+          <Caption LanguageID="pl" Text="CS 1.5 krótki" />
+        </Item>
+        <Item ID="CL1_5">
+          <Caption LanguageID="en" Text="CL 1.5 long" />
+          <Caption LanguageID="fr" Text="CL 1.5 long" />
+          <Caption LanguageID="da" Text="CL 1.5 lang" />
+          <Caption LanguageID="es" Text="CL 1.5 largo" />
+          <Caption LanguageID="de" Text="CL 1.5 lang" />
+          <Caption LanguageID="ru" Text="CL 1.5 длинный" />
+          <Caption LanguageID="uk" Text="CL 1.5 довгий" />
+          <Caption LanguageID="pl" Text="CL 1.5 długi" />
+        </Item>
+        <Item ID="CS1_75">
+          <Caption LanguageID="en" Text="CS 1.75 short" />
+          <Caption LanguageID="fr" Text="CS 1.75 court" />
+          <Caption LanguageID="da" Text="CS 1.75 kort" />
+          <Caption LanguageID="es" Text="CS 1.75 corto" />
+          <Caption LanguageID="de" Text="CS 1.75 kurz" />
+          <Caption LanguageID="ru" Text="CS 1.75 короткий" />
+          <Caption LanguageID="uk" Text="CS 1.75 короткий" />
+          <Caption LanguageID="pl" Text="CS 1.75 krótki" />
+        </Item>
+        <Item ID="CL1_75">
+          <Caption LanguageID="en" Text="CL 1.75 long" />
+          <Caption LanguageID="fr" Text="CL 1.75 long" />
+          <Caption LanguageID="da" Text="CL 1.75 lang" />
+          <Caption LanguageID="es" Text="CL 1.75 largo" />
+          <Caption LanguageID="de" Text="CL 1.75 lang" />
+          <Caption LanguageID="ru" Text="CL 1.75 длинный" />
+          <Caption LanguageID="uk" Text="CL 1.75 довгий" />
+          <Caption LanguageID="pl" Text="CL 1.75 długi" />
+        </Item>
+      </DropDown>
+      <DropDown Condition="TypeClass=TelescopeCrown OR TypeClass=PostAndCoreStandard OR TypeClass=PostAndCoreRetainedCrown" ElementID="PostAndCoreMaterial">
+        <Caption LanguageID="en" Text="Material" />
+        <Item ID="">
+          <Caption LanguageID="en" Text="-- Not chosen --" />
+        </Item>
+        <Item ID="CoCr">
+          <Caption LanguageID="en" Text="Chrome-Cobalt" />
+        </Item>
+        <Item ID="Titanium">
+          <Caption LanguageID="en" Text="Titanium" />
+        </Item>
+        <Item ID="Precious">
+          <Caption LanguageID="en" Text="Precious" />
+        </Item>
+        <Item ID="Zirconia">
+          <Caption LanguageID="en" Text="Zirconia" />
+        </Item>
+      </DropDown>
+    </Group>
+    <Group ElementID="PlanningGroup">
+      <Caption LanguageID="en" Text="Implant planning" />
+      <DropDown Condition="NumberOfUnits&gt;0" ElementID="ImplantPlanningType">
+        <Caption LanguageID="en" Text="Planning" />
+        <Item ID="">
+          <Caption LanguageID="en" Text="-- None --" />
+          <Caption LanguageID="fr" Text="-- Aucun --" />
+          <Caption LanguageID="da" Text="-- Ingen --" />
+          <Caption LanguageID="es" Text="-- Ninguno --" />
+        </Item>
+        <Item ID="ImplantPlanning1" TypeClass="ImplantPlanning">
+          <Caption LanguageID="en" Text="Implant planning" />
+          <Image FileName="24x24Implant.png" />
+        </Item>
+      </DropDown>
+      <DropDown Condition="NumberOfUnits&gt;0" ElementID="SurgicalGuideType">
+        <Caption LanguageID="en" Text="Surgical guide" />
+        <Item ID="">
+          <Caption LanguageID="en" Text="-- None --" />
+          <Caption LanguageID="fr" Text="-- Aucun --" />
+          <Caption LanguageID="da" Text="-- Ingen --" />
+          <Caption LanguageID="es" Text="-- Ninguno --" />
+        </Item>
+        <Item ID="SurgicalGuide1" TypeClass="SurgicalGuide">
+          <Caption LanguageID="en" Text="Surgical guide" />
+          <Image FileName="24x24BridgeBar.png" />
+        </Item>
+      </DropDown>
+    </Group>
+    <Group ElementID="OrthoGroup">
+      <Caption LanguageID="en" Text="Orthodontics" />
+      <DropDown Condition="NumberOfUnits&gt;0" ElementID="OrthoType" MappingID="RestorationType">
+        <Caption LanguageID="en" Text="Bracket" />
+        <Item ID="">
+          <Caption LanguageID="en" Text="-- None --" />
+          <Caption LanguageID="fr" Text="-- Aucun --" />
+          <Caption LanguageID="da" Text="-- Ingen --" />
+          <Caption LanguageID="es" Text="-- Ninguno --" />
+        </Item>
+        <Item ID="Bracket" TypeClass="Brackets">
+          <Caption LanguageID="en" Text="Bracket" />
+          <Image FileName="32x32Bracket.png" />
+        </Item>
+      </DropDown>
+    </Group>
+  </ModelElementTemplate>
+</AoraOrderFormTemplate>
